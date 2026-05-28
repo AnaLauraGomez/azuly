@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro de Productos</title>
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/registro_productos.css" />
+
+  <style>
+    /* ENCABEZADO */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #aac4e8;
+    padding: 10px 20px;
+    width: 100vw; /* Abarca toda la pantalla */
+    box-sizing: border-box; /* Asegura que el padding no se sume al ancho */
+    
+}
+
+.logo img {
+    width: 150px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.auth-buttons button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}
+  </style>
+ 
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../images/logo.png" alt="Azuly Flores">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../html/registro_productos.html">Registro de Productos</a></li>
+                <li><a href="../php/productos_admin.php">Administrar Productos</a></li>
+                <li><a href="../php/usuarios_admin.php">Gestionar Usuarios</a></li>
+                <li><a href="../php/admin_pedidos.php">Gestionar Pedidos</a></li>
+                <li><a href="../php/bitacora_admin.php">Bitacora</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="logout" onclick="window.location.href='../php/logout.php'">Cerrar Sesión</button>
+        </div>
+    </header>
+
+  <div class="container">
+    <h2>|Administrador|</h2>
+    <h2>Registro de Productos</h2>
+
+    <form id="form-producto" action="../php/registro_productos.php" method="POST" enctype="multipart/form-data">
+      <label for="nombre">Nombre del Producto:</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" name="descripcion" required></textarea>
+
+      <label for="precio">Precio:</label>
+      <input type="number" id="precio" name="precio" step="0.01" required />
+
+      <label for="imagen">Subir Imagen:</label>
+      <input type="file" id="imagen" name="imagen" accept="image/*" required />
+
+      <label for="categoria">Categoría:</label>
+      <select id="categoria" name="categoria" required>
+        <option value="">-- Selecciona una categoría --</option>
+        <option value="Cumpleaños">Cumpleaños</option>
+        <option value="Bodas">Bodas</option>
+        <option value="Aniversarios">Aniversarios</option>
+        <option value="Celebra con Flores">Celebra con Flores</option>
+      </select>
+
+
+      <button type="submit">Registrar Producto</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="../images/logo.png" alt="Azuly Flores" />
+        <p>&copy; 2025 Azuly Flores. Todos los derechos reservados.</p>
+      </div>
+      <div class="footer-social">
+        <h3>Redes Sociales</h3>
+        <ul>
+          <li><a href="#"><i class="fab fa-facebook-f"></i> @Azuly_Flores</a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i> @Azuly_Flores</a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i> @Azuly_Flores</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="mailto:Azuly_Flores@gmail.com"><i class="fas fa-envelope"></i> Azuly_Flores@gmail.com</a></li>
+          <li><a href="tel:+523323598160"><i class="fas fa-phone"></i>+52 (33) 23 59 81 60</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Validación JavaScript -->
+  <script>
+    document.getElementById('form-producto').addEventListener('submit', function (e) {
+      const campos = ['nombre', 'descripcion', 'precio', 'categoria'];
+
+      let valido = true;
+      let mensaje = '';
+
+      // Limpiar bordes previos
+      campos.forEach(id => document.getElementById(id).style.border = '');
+
+      // Validar campos vacíos
+      campos.forEach(id => {
+        const campo = document.getElementById(id);
+        if (!campo.value.trim()) {
+          valido = false;
+          campo.style.border = '2px solid red';
+        }
+      });
+
+      // Validar precio
+      const precio = parseFloat(document.getElementById('precio').value);
+      if (isNaN(precio) || precio < 0.01) {
+        valido = false;
+        mensaje += 'El precio debe ser mayor a 0.01.\n';
+        document.getElementById('precio').style.border = '2px solid red';
+      }
+
+      const formatosValidos = /\.(jpg|jpeg|png|gif)$/;
+      if (!formatosValidos.test(url)) {
+        valido = false;
+        mensaje += 'La URL de la imagen debe terminar en .jpg, .jpeg, .png o .gif.\n';
+        document.getElementById('imagen_url').style.border = '2px solid red';
+      }
+
+      // Mostrar alerta si hay errores
+      if (!valido) {
+        e.preventDefault();
+        if (!mensaje) mensaje = 'Por favor completa todos los campos correctamente.';
+        alert(mensaje);
+      }
+    });
+
+    const categoria = document.getElementById('categoria').value;
+    if (!categoria) {
+      valido = false;
+      mensaje += 'Selecciona una categoría.\n';
+      document.getElementById('categoria').style.border = '2px solid red';
+    }
+
+  </script>
+
+  <div id="toast" style="display:none;"></div>
+
+<script>
+  // Mostrar mensaje de la URL
+  const params = new URLSearchParams(window.location.search);
+  const mensaje = params.get('mensaje');
+  if (mensaje) {
+    const toast = document.getElementById('toast');
+    toast.textContent = decodeURIComponent(mensaje);
+    toast.style.display = 'block';
+    toast.style.position = 'fixed';
+    toast.style.bottom = '30px';
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
+    toast.style.backgroundColor = '#333';
+    toast.style.color = '#fff';
+    toast.style.padding = '16px';
+    toast.style.borderRadius = '8px';
+    toast.style.boxShadow = '0px 0px 10px rgba(0,0,0,0.3)';
+    toast.style.zIndex = '1000';
+    toast.style.animation = 'fadein 0.5s, fadeout 0.5s 3s';
+
+    setTimeout(() => {
+      toast.style.display = 'none';
+    }, 4000);
+  }
+
+  // Animaciones
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes fadein {
+      from { opacity: 0; bottom: 0; }
+      to { opacity: 1; bottom: 30px; }
+    }
+    @keyframes fadeout {
+      from { opacity: 1; bottom: 30px; }
+      to { opacity: 0; bottom: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+</body>
+</html>

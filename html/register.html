@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azuly Flores - Registro</title>
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
+
+    <style>
+        /* Estilo general para la barra de navegación */
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #6c8ebf;
+            padding: 10px 20px;
+            width: 100vw;
+            box-sizing: border-box;
+            gap: 40px;
+        }
+        
+        /* Estilo para el logo */
+        .logo img {
+            width: 150px;
+        }
+        
+        /* Flex para distribuir logo y nav */
+        .logo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Estilo para la navegación */
+        nav {
+            margin-right: 350px;
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Lista horizontal de enlaces */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 80px;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* Enlaces individuales */
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #dfeeff;
+        }
+        </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../images/logo.png" alt="Azuly Flores">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../html/login.html">Iniciar Sesión</a></li>
+                <li><a href="../html/index.html">Página Principal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <img src="../images/logo.png" alt="Azuly Flores" class="logo">
+
+        <form method="post" action="../php/register.php" name="register-form">
+            <input type="text" placeholder="Nombre Completo" name="nombre" required>
+            <input type="email" placeholder="Correo Electrónico" name="email" required>
+            <input type="password" placeholder="Contraseña" name="password" required>
+            <div class="checkbox-container">
+                <input type="checkbox" name="terms" required>
+                <label>Estoy de acuerdo con el uso de mis datos para la compra de productos.</label>
+            </div>
+            <button type="submit" name="register">Registrar mi cuenta</button>
+        </form>
+
+         <!-- Mensaje de éxito -->
+         <div id="success-message" class="hidden">
+            <p>Registro exitoso. Ahora puedes iniciar sesión.</p>
+            <a href="login.html"><button>Ir a Iniciar Sesión</button></a>
+        </div>
+
+        <div class="image-container">
+            <img src="../images/petalos_azules.jpg" alt="Flores">
+        </div>
+    </div>
+
+    <script>
+        // Verificar si se registró correctamente
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('success')) {
+            document.getElementById('success-message').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
+

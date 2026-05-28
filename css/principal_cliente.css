@@ -1,0 +1,125 @@
+/* Estilos del carrusel */
+.carousel {
+    position: relative;
+    width: 400px; 
+    height: 400px; 
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #f5f5f5; 
+}
+
+.carousel-images {
+    display: flex;
+    width: fit-content; /* Se ajusta dinámicamente */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    width: 400px;
+    height: 400px; 
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: white; 
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-buttons button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.carousel-buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.logout {
+    background: #6c8ebf;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.logout:hover {
+    background-color: #cc0000;
+}
+
+.testimonios {
+    width: 350px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.testimonial {
+    background-color: #f0f8ff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #00aaff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #333;
+}
+.testimonial strong {
+    display: block;
+    margin-top: 10px;
+    color: #0077cc;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    font-size: 28px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+.whatsapp-float:hover {
+    background-color: #1ebe5b;
+}
+
+.contenido-principal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+

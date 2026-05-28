@@ -1,0 +1,64 @@
+
+/* Archivo: css/login.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b0c4de;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px); /* espacio ajustado restando la altura del header */
+    padding-top: 20px;
+}
+
+.container {
+    background: #d3e0f0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    margin-bottom: 40px; /* margen extra para separarlo del footer si lo tienes */
+}
+.logo {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+input[type="email"], input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    background: #6c8ebf;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background: #5a7ba5;
+}
+.forgot-password {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #6c8ebf;
+    text-decoration: none;
+}
+.forgot-password:hover {
+    text-decoration: underline;
+}
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+}

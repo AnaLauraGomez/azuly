@@ -1,0 +1,67 @@
+/* Archivo: css/productos_admin.css */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;  /* Hace que el body ocupe el 100% de la altura de la ventana */
+    margin: 5px;
+}
+
+.container {
+    flex: 1;  /* Permite que el contenido principal ocupe el espacio restante */
+    padding-bottom: 50px;  /* Asegura que haya espacio para el footer */
+}
+
+footer {
+    margin-top: auto;  /* Esto asegura que el footer quede al final */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #6c8ebf;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+img {
+    border-radius: 5px;
+    max-width: 100%;
+    height: auto;
+}
+
+.acciones a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #6c8ebf;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    align-items: center;
+}
+
+.acciones a:hover {
+    background-color: #5a7ba5;
+}

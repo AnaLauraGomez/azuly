@@ -1,0 +1,72 @@
+/* Archivo: css/productos.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.tarjetas-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tarjeta-producto {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.tarjeta-producto img {
+    width: 100%;
+    max-height: 200px; /* Limita la altura máxima */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+
+.tarjeta-producto h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.tarjeta-producto p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.btn-agregar {
+    background-color: #6c8ebf;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+    transition: background 0.3s ease;
+}
+
+.btn-agregar:hover {
+    background-color: #5a7ba5;
+}
+

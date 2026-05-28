@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azuly Flores - Panel de Usuario</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/principal_cliente.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../images/logo.png" alt="Azuly Flores">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../html/pag_principal_cliente.html">Inicio</a></li>
+                <li><a href="../php/productos.php">Productos</a></li>
+                <li><a href="../html/categorias.html">Categorías</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="../php/historial_compras.php">Mis compras</a></li>
+
+                <div class="carrito-boton">
+                <a href="../php/carrito.php"><i class="fas fa-shopping-cart"></i> Ver Carrito</a>
+                </div>
+
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="logout" onclick="window.location.href='../php/logout.php'">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+        <h1>Bienvenido a tu panel de usuario</h1>
+        <h2 style="margin-top: 10px; color: #555; background-color: rgb(159, 205, 243);">"Flores que hablan por ti en cada ocasión"</h2>
+        <p>Hola, <strong id="usuario-nombre"></strong>. Aquí podrás explorar nuestros productos y hacer tus pedidos.</p>
+
+        <div class="contenido-principal">
+            <!-- Reseñas a la izquierda -->
+            <div class="testimonios">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <div class="testimonial">
+                    <p>“El arreglo floral llegó perfecto. ¡Muy recomendable!”</p>
+                    <strong>- María G.</strong>
+                </div>
+                <div class="testimonial">
+                    <p>“Excelente servicio y puntualidad. Gracias Azuly.”</p>
+                    <strong>- Carlos M.</strong>
+                </div>
+            </div>
+
+            <!-- Carrusel a la derecha -->
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="../images/arreglo1.jpg" alt="Producto 1">
+                    <img src="../images/arreglo2.jpg" alt="Producto 2">
+                    <img src="../images/arreglo3.jpg" alt="Producto 3">
+                    <img src="../images/arreglo_flores_blancas.jpg" alt="Producto 4">
+                    <img src="../images/arreglo_flores_rosas.jpg" alt="Producto 5">
+                    <img src="../images/tulipanes_rosas_ramo.jpg" alt="Producto 6">
+                </div>
+                <div class="carousel-buttons">
+                    <button id="prev">←</button>
+                    <button id="next">→</button>
+                </div>
+            </div>
+        </div>
+        <a href="https://wa.me/523332435680" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        </a>
+    </section>
+
+    </main>
+
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../images/logo.png" alt="Azuly Flores">
+                <p>&copy; 2024 Azuly Flores. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-social">
+                <h3>Redes Sociales</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i> @Azuly_Flores</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> @Azuly_Flores</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> @Azuly_Flores</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href="mailto:Azuly_Flores@gmail.com"><i class="fas fa-envelope"></i> Azuly_Flores@gmail.com</a></li>
+                    <li><a href="tel:+523323598160"><i class="fas fa-phone"></i> +52 3323598160</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Obtener nombre del usuario desde la sesión almacenada en PHP
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("../php/session.php")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.nombre) {
+                        // Si la sesión está activa, muestra el nombre del usuario
+                        document.getElementById("usuario-nombre").textContent = data.nombre;
+                    } else {
+                        // Si no hay sesión activa, redirigir al login
+                        window.location.href = "../html/login.html";
+                    }
+                })
+                .catch(error => {
+                    // En caso de error, también redirigir al login
+                    window.location.href = "../html/login.html";
+                });
+
+            // Lógica del carrusel
+            const imagesContainer = document.querySelector(".carousel-images");
+            const images = document.querySelectorAll(".carousel-images img");
+            const totalImages = images.length;
+            let index = 0;
+
+            document.getElementById("prev").addEventListener("click", function() {
+                if (index > 0) {
+                    index--;
+                } else {
+                    index = totalImages - 1; // Si está en la primera imagen, ir a la última
+                }
+                updateCarousel();
+            });
+
+            document.getElementById("next").addEventListener("click", function() {
+                if (index < totalImages - 1) {
+                    index++;
+                } else {
+                    index = 0; // Si está en la última imagen, volver a la primera
+                }
+                updateCarousel();
+                setInterval(() => {
+                    index = (index + 1) % totalImages;
+                    updateCarousel();
+                }, 5000);
+
+            });
+
+            function updateCarousel() {
+                const imageWidth = images[0].clientWidth; // Obtener el ancho de la imagen
+                imagesContainer.style.transform = `translateX(-${index * imageWidth}px)`;
+            }
+            
+        });
+    </script>
+</body>
+</html>
+

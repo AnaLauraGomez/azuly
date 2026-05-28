@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azuly Flores - Login</title>
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
+    <style>
+        /* Estilo general para la barra de navegación */
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #6c8ebf;
+            padding: 10px 20px;
+            width: 100vw;
+            box-sizing: border-box;
+            gap: 40px;
+        }
+        
+        /* Estilo para el logo */
+        .logo img {
+            width: 150px;
+        }
+        
+        /* Flex para distribuir logo y nav */
+        .logo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Estilo para la navegación */
+        nav {
+            margin-right: 350px;
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Lista horizontal de enlaces */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 80px;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* Enlaces individuales */
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #dfeeff;
+        }
+        </style>
+        
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../images/logo.png" alt="Azuly Flores">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../html/login.html">Iniciar Sesión</a></li>
+                <li><a href="../html/index.html">Página Principal</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+    <div class="container">
+        <img src="../images/logo.png" alt="Azuly Flores" class="logo">
+
+        <!-- Contenedor del mensaje de error -->
+        <div id="login-error" style="display:none; padding: 10px; background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 5px; margin-bottom: 15px; text-align: center; font-weight: bold;"></div>
+
+
+
+        <form method="post" action="../php/login.php" name="signin-form">
+            <input type="email" placeholder="Correo Electrónico" name="email" required>
+            <input type="password" placeholder="Contraseña" name="password" required>
+            <button type="submit" name="login">Iniciar Sesión</button>
+        </form>
+        
+        <!--  <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>-->
+        <a href="register.html" class="forgot-password">¿No tienes cuenta? Regístrate aquí</a>
+
+        <div class="image-container">
+            <img src="../images/petalos_azules.jpg" alt="Flores">
+        </div>
+    </div>
+
+</main>
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get("error");
+    if (error) {
+        const errorDiv = document.getElementById("login-error");
+        let message = "";
+        switch (error) {
+            case "contrasena":
+                message = "Contraseña incorrecta.";
+                break;
+            case "correo":
+                message = "Correo no registrado.";
+                break;
+            case "incompleto":
+                message = "Por favor, completa todos los campos.";
+                break;
+        }
+        if (message) {
+            errorDiv.textContent = message;
+            errorDiv.style.display = "block";
+
+            // Ocultar automáticamente después de 4 segundos
+            setTimeout(() => {
+                errorDiv.style.opacity = "1";
+                errorDiv.style.transition = "opacity 0.5s ease";
+                errorDiv.style.opacity = "0";
+                setTimeout(() => errorDiv.style.display = "none", 500);
+            }, 4000);
+        }
+    }
+</script>
+
+</body>
+</html>
+<script>
+    // Bloquear el retroceso en el navegador
+    history.pushState(null, "", location.href);  // Añadir una entrada en el historial
+    window.onpopstate = function() {
+        history.pushState(null, "", location.href);  // Bloquear el retroceso (prev)
+    };
+</script>
+<script>
+    // Evita que el navegador cargue la página de login desde el caché
+    if (performance.navigation.type === 2) {
+        window.location.reload(true);
+    }
+</script>

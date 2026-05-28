@@ -1,0 +1,313 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+/* ENCABEZADO */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #aac4e8;
+    padding: 10px 20px;
+}
+
+.logo img {
+    width: 150px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.auth-buttons button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.login {
+    background-color: white;
+    border: 1px solid #5a7ba5;
+}
+
+.register {
+    background-color: #5a7ba5;
+    color: white;
+}
+
+/* SECCIÓN HERO */
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    color: #4a90e2;
+    font-size: 2rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.catalogo {
+    padding: 8px 15px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+/* Imagen Principal */
+.imagen-principal {
+    width: 100%;
+    max-height: 400px; /* Ajusta la altura máxima según el diseño */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evita que se desborde */
+}
+
+.imagen-principal img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Mantiene la proporción sin hacerla enorme */
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+}
+
+/* Sección de Información */
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Espacio entre tarjetas */
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    flex-wrap: wrap; /* Permite que se adapte en pantallas pequeñas */
+}
+
+/* Tarjeta individual */
+.tarjeta {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Controla el ancho máximo */
+    width: 500px;
+    height: 300px;
+   
+}
+
+/* Imagen dentro de la tarjeta */
+.tarjeta img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px; /* Espacio entre imagen y texto */
+}
+
+/* Texto dentro de la tarjeta */
+.tarjeta .contenido {
+    max-width: 300px;
+   
+    align-content: center;
+    text-align: justify;
+}
+
+.tarjeta h3 {
+    font-size: 1.5rem;
+    align-content: center;
+    text-align: center;
+    color: #4a90e2;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+
+
+/* UBICACIÓN */
+.ubicacion {
+    width: 93%;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    background-color: #dbe6f7;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ubicacion h2 {
+    color: #4a90e2;
+    font-size: 1.5rem;
+    padding: 10px 10px; 
+    border-radius: 5px; 
+    display: inline-block; 
+    margin: 10px 0;
+}
+
+.map-container iframe {
+    width: 90%;
+    height: 300px;
+    border: 0;
+}
+
+/* SECCIÓN PRODUCTOS */
+.productos {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+.productos h2 {
+    color: #4a90e2;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.productos-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.producto {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.producto h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.producto p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/*CATEGORIAS*/
+.categorias {
+    padding: 20px 0;
+    background-color: #f8f8f8;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #dbe6f7;
+}
+
+.categorias h2 {
+    color: #4a90e2;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.categorias-lista {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.categoria {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoria:hover {
+    transform: scale(1.05);
+}
+
+.categoria-icono {
+    background-color: #2b3e50;
+    color: white;
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.categoria:hover .categoria-icono {
+    background-color: #6c7c8d;
+}
+
+.categoria h3 {
+    font-size: 1.8rem;
+    color: #2b3e50;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.categoria p {
+    font-size: 1rem;
+    color: #757575;
+    margin: 0;
+}
+
+
+

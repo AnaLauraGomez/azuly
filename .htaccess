@@ -1,0 +1,9 @@
+# Activamos el motor de reescritura
+RewriteEngine On
+
+# Manejamos el error 404 redirigiendo al archivo local (ruta relativa, no absoluta)
+ErrorDocument 404 /Web%20ii/azylu_flores/php/Error404.php
+
+# Opcional: evitar mostrar listados de carpetas
+Options +Indexes
+
