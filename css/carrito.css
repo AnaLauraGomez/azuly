@@ -75,3 +75,22 @@
 .btn-eliminar:hover {
     background-color: #c82333;
 }
+
+@media (max-width: 768px) {
+    .carrito-tabla {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .carrito-tabla th, .carrito-tabla td {
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .carrito-total {
+        margin-right: 0;
+        padding: 0 5%;
+        text-align: left;
+    }
+}

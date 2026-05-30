@@ -33,6 +33,7 @@ $resultado = mysqli_query($con, $sql);
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
@@ -94,6 +95,7 @@ $resultado = mysqli_query($con, $sql);
 <body>
 
 <header>
+    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
         <div class="logo">
             <img src="../images/logo.png" alt="Azuly Flores">
         </div>
@@ -110,6 +112,7 @@ $resultado = mysqli_query($con, $sql);
             <button class="logout" onclick="window.location.href='../php/logout.php'">Cerrar Sesión</button>
         </div>
     </header>
+    <script src="../js/nav.js" defer></script>
 
     <div class="container">
     <h2>Administrar Productos</h2>

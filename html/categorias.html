@@ -6,12 +6,14 @@
     <title>Categorías de Productos</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
+        <button class="nav-toggle" aria-label="Abrir menú">☰</button>
         <div class="logo">
             <img src="../images/logo.png" alt="Azuly Flores">
         </div>
@@ -22,12 +24,10 @@
                 <li><a href="../html/categorias.html">Categorías</a></li>
                 <li><a href="#contacto">Contacto</a></li>
                 <li><a href="../php/historial_compras.php">Mis compras</a></li>
-
-                <div class="carrito-boton">
-                <a href="../php/carrito.php"><i class="fas fa-shopping-cart"></i> Ver Carrito</a>
-                 </div>
-                 
             </ul>
+            <div class="carrito-boton">
+                <a href="../php/carrito.php"><i class="fas fa-shopping-cart"></i> Ver Carrito</a>
+            </div>
         </nav>
         <div class="auth-buttons">
             <button class="logout" onclick="window.location.href='../php/logout.php'">Cerrar Sesión</button>
@@ -99,6 +99,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="../js/nav.js" defer></script>
 
 </body>
 </html>

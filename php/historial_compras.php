@@ -61,6 +61,7 @@ function obtenerClaseEstado($estado) {
     <title>Historial de Compras</title>
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     
  <style>
@@ -143,6 +144,7 @@ function obtenerClaseEstado($estado) {
 </head>
 <body>
     <header>
+        <button class="nav-toggle" aria-label="Abrir menú">☰</button>
         <div class="logo">
             <img src="../images/logo.png" alt="Azuly Flores">
         </div>
@@ -152,11 +154,11 @@ function obtenerClaseEstado($estado) {
                 <li><a href="../php/productos.php">Productos</a></li>
                 <li><a href="../html/categorias.html">Categorías</a></li>
                 <li><a href="#contacto">Contacto</a></li>
-                <li><a href="../php/historial_compras.php">Mis compras</a></li>  
-                <div class="carrito-boton">
-                <a href="../php/carrito.php"><i class="fas fa-shopping-cart"></i> Ver Carrito</a>
-                </div>
+                <li><a href="../php/historial_compras.php">Mis compras</a></li>
             </ul>
+            <div class="carrito-boton">
+                <a href="../php/carrito.php"><i class="fas fa-shopping-cart"></i> Ver Carrito</a>
+            </div>
         </nav>
         <div class="auth-buttons">
             <button class="logout" onclick="window.location.href='../php/logout.php'">Cerrar Sesión</button>
@@ -200,6 +202,7 @@ function obtenerClaseEstado($estado) {
     </div>
 
     <?php include '../php/footer.php'; ?>
+    <script src="../js/nav.js" defer></script>
 </body>
 </html>
 

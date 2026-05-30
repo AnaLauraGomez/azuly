@@ -6,7 +6,7 @@ body {
     flex-direction: column;  /* Cambio para que el contenido se apile verticalmente */
     justify-content: space-between;  /* Hace que el contenido principal ocupe el centro y el footer quede al final */
     align-items: center;
-    height: 100vh;  /* Hace que el cuerpo ocupe toda la altura de la ventana */
+    min-height: 100vh;  /* Usa min-height para evitar problemas en pantallas pequeñas */
     margin: 0;  /* Elimina márgenes predeterminados */
 }
 
@@ -15,7 +15,8 @@ body {
     background: #afd0ff;
     padding: 20px 30px;
     border-radius: 10px;
-    width: 400px;
+    width: 100%;
+    max-width: 680px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px; /* Espacio entre el contenido y el formulario */
     margin-bottom: 20px;
@@ -88,7 +89,8 @@ footer {
 }
 
 .footer-logo img {
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     margin-bottom: 10px;
 }
 

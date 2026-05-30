@@ -24,10 +24,12 @@ $resultado = mysqli_query($con, $sql);
     <link rel="stylesheet" href="../css/productos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 </head>
 <body>
 
 <header>
+        <button class="nav-toggle" aria-label="Abrir menú">☰</button>
         <div class="logo">
             <img src="../images/logo.png" alt="Azuly Flores">
         </div>
@@ -38,12 +40,10 @@ $resultado = mysqli_query($con, $sql);
                 <li><a href="../html/categorias.html">Categorías</a></li>
                 <li><a href="#contacto">Contacto</a></li>
                 <li><a href="../php/historial_compras.php">Mis compras</a></li>
-
-                <div class="carrito-boton">
-                <a href="carrito.php"><i class="fas fa-shopping-cart"></i> Ver Carrito</a>
-                 </div>
-
             </ul>
+            <div class="carrito-boton">
+                <a href="carrito.php"><i class="fas fa-shopping-cart"></i> Ver Carrito</a>
+            </div>
         </nav>
         <div class="auth-buttons">
             <button class="logout" onclick="window.location.href='../php/logout.php'">Cerrar Sesión</button>
@@ -82,6 +82,8 @@ $resultado = mysqli_query($con, $sql);
     </div>
 
     <?php include '../php/footer.php'; ?>
+
+    <script src="../js/nav.js" defer></script>
 
 </body>
 </html>

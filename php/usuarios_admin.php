@@ -32,6 +32,7 @@ $resultado = mysqli_query($con, "SELECT * FROM usuarios");
     <link rel="stylesheet" href="../css/styles_usuarios_admin.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -71,6 +72,7 @@ $resultado = mysqli_query($con, "SELECT * FROM usuarios");
 <body>
 
 <header>
+    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
     <div class="logo">
         <img src="../images/logo.png" alt="Azuly Flores">
     </div>
@@ -281,6 +283,7 @@ function cambiarGrafica(num) {
 </script>
 
 <?php include '../php/footer.php'; ?>
+<script src="../js/nav.js" defer></script>
 </body>
 </html>
 

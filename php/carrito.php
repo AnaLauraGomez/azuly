@@ -27,10 +27,12 @@ $resultado = $stmt->get_result();
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/carrito.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
     <header>
+        <button class="nav-toggle" aria-label="Abrir menú">☰</button>
         <div class="logo">
             <img src="../images/logo.png" alt="Azuly Flores">
         </div>
@@ -218,6 +220,7 @@ $resultado = $stmt->get_result();
     });
 
     </script>
+    <script src="../js/nav.js" defer></script>
 
 </body>
 </html>

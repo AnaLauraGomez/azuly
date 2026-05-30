@@ -1,0 +1,42 @@
+/* Responsive helpers and mobile nav */
+
+/* Nav toggle button */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+
+header .nav-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* At mobile sizes hide regular nav and show toggle */
+@media (max-width: 768px) {
+  .nav-toggle { display: inline-block; }
+
+  nav { display: none; width: 100%; }
+  header.open nav { display: block; }
+
+  nav ul { display: flex; flex-direction: column; gap: 10px; padding: 10px 0; }
+  nav ul li { display: block; }
+
+  .carrito-boton { order: 2; }
+  .auth-buttons { order: 3; width: 100%; display:flex; justify-content: flex-end; }
+  header.open nav { background: transparent; }
+}
+
+/* Improve footer spacing on small screens */
+@media (max-width: 480px) {
+  .footer-container { padding: 20px; }
+  .footer-logo p { font-size: 0.9rem; }
+}
+
+/* Increase touch target sizes */
+button, .btn-agregar, .btn-finalizar, .btn-actualizar { min-height: 44px; }
