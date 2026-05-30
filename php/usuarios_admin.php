@@ -135,8 +135,8 @@ $resultado = mysqli_query($con, "SELECT * FROM usuarios");
             <label>Email:</label>
             <input type="email" name="email" id="edit_email" required>
 
-            <label>Contraseña:</label>
-            <input type="text" name="contrasenia" id="edit_contrasenia" required>
+            <label>Contraseña (dejar en blanco para conservar):</label>
+            <input type="password" name="contrasenia" id="edit_contrasenia">
 
             <label>Rol:</label>
             <select name="id_rol" id="edit_id_rol" required>
@@ -156,7 +156,6 @@ $resultado = mysqli_query($con, "SELECT * FROM usuarios");
             <th>ID</th>
             <th>Nombre</th>
             <th>Email</th>
-            <th>Contraseña</th>
             <th>Rol</th>
             <th>Fecha Registro</th>
             <th>Acciones</th>
@@ -169,7 +168,6 @@ $resultado = mysqli_query($con, "SELECT * FROM usuarios");
             <td><?= $usuario['id_usuario'] ?></td>
             <td><?= htmlspecialchars($usuario['nombre']) ?></td>
             <td><?= htmlspecialchars($usuario['email']) ?></td>
-            <td><?= htmlspecialchars($usuario['contrasenia']) ?></td>
             <td><?= $usuario['id_rol'] == 1 ? "Admin" : "Cliente" ?></td>
             <td><?= $usuario['fecha_registro'] ?></td>
 
@@ -219,7 +217,6 @@ function abrirModalEditar(usuario) {
     document.getElementById('edit_id').value = usuario.id_usuario;
     document.getElementById('edit_nombre').value = usuario.nombre;
     document.getElementById('edit_email').value = usuario.email;
-    document.getElementById('edit_contrasenia').value = usuario.contrasenia;
     document.getElementById('edit_id_rol').value = usuario.id_rol;
     document.getElementById('modalEditar').style.display = 'block';
 }

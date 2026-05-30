@@ -11,10 +11,11 @@ if (isset($_POST['nombre'], $_POST['email'], $_POST['password'])) {
         die("Error de conexión: " . mysqli_connect_error());
     }
 
-    // Insertar el usuario con id_rol
-    $sql = mysqli_query($con, "INSERT INTO usuarios (nombre, email, contrasenia, id_rol) VALUES ('$nombre', '$email', '$password', '$id_rol')");
-
-    if ($sql) {
+    // Hashear la contraseña y insertar el usuario con id_rol
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $stmt = mysqli_prepare($con, "INSERT INTO usuarios (nombre, email, contrasenia, id_rol) VALUES (?, ?, ?, ?)");
+    mysqli_stmt_bind_param($stmt, "sssi", $nombre, $email, $hashed_password, $id_rol);
+    if (mysqli_stmt_execute($stmt)) {
         // Redirigir al registro con un mensaje de éxito
         header("Location: ../html/register.html?success=1");
         exit();
@@ -22,6 +23,7 @@ if (isset($_POST['nombre'], $_POST['email'], $_POST['password'])) {
         echo "Error: " . mysqli_error($con);
     }
 
+    mysqli_stmt_close($stmt);
     mysqli_close($con);
 } else {
     echo "Faltan datos en el formulario.";

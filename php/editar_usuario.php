@@ -17,22 +17,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $id_rol = (int) $_POST['id_rol'];
 
-    // Verificar si se envió una contraseña nueva
-    if (!empty($_POST['contrasenia'])) {
-        $contrasenia = mysqli_real_escape_string($con, $_POST['contrasenia']);
-        $query = "UPDATE usuarios SET 
-                    nombre='$nombre', 
-                    email='$email', 
-                    contrasenia='$contrasenia', 
-                    id_rol=$id_rol 
-                  WHERE id_usuario=$id";
-    } else {
-        $query = "UPDATE usuarios SET 
-                    nombre='$nombre', 
-                    email='$email', 
-                    id_rol=$id_rol 
-                  WHERE id_usuario=$id";
-    }
+        // Verificar si se envió una contraseña nueva
+        if (!empty($_POST['contrasenia'])) {
+                $contrasenia_raw = $_POST['contrasenia'];
+                $contrasenia_hashed = mysqli_real_escape_string($con, password_hash($contrasenia_raw, PASSWORD_DEFAULT));
+                $query = "UPDATE usuarios SET 
+                                        nombre='$nombre', 
+                                        email='$email', 
+                                        contrasenia='$contrasenia_hashed', 
+                                        id_rol=$id_rol 
+                                    WHERE id_usuario=$id";
+        } else {
+                $query = "UPDATE usuarios SET 
+                                        nombre='$nombre', 
+                                        email='$email', 
+                                        id_rol=$id_rol 
+                                    WHERE id_usuario=$id";
+        }
 
     if (mysqli_query($con, $query)) {
         header("Location: usuarios_admin.php");

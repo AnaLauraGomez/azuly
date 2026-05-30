@@ -16,8 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasenia = $_POST['contrasenia'];
     $id_rol = $_POST['id_rol'];
 
+    // Hashear la contraseña antes de almacenar
+    $hashed = password_hash($contrasenia, PASSWORD_DEFAULT);
+
     $stmt = $con->prepare("INSERT INTO usuarios (nombre, email, contrasenia, id_rol) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("sssi", $nombre, $email, $contrasenia, $id_rol);
+    $stmt->bind_param("sssi", $nombre, $email, $hashed, $id_rol);
     $stmt->execute();
     header("Location: usuarios_admin.php");
     exit();

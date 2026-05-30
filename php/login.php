@@ -21,7 +21,8 @@ if (isset($_POST['email'], $_POST['password'])) {
     $resultado = mysqli_stmt_get_result($stmt);
 
     if ($usuario = mysqli_fetch_assoc($resultado)) {
-        if ($password === $usuario['contrasenia']) { 
+        // Verificar la contraseña usando password_verify
+        if (password_verify($password, $usuario['contrasenia'])) {
             $_SESSION['usuario'] = $usuario['nombre'];
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['id_rol'] = $usuario['id_rol'];
@@ -40,6 +41,32 @@ if (isset($_POST['email'], $_POST['password'])) {
 
             exit();
         } else {
+            // Compatibilidad: si la contraseña en la BD está en texto plano
+            if ($password === $usuario['contrasenia']) {
+                // Re-hashear y actualizar la contraseña en la BD
+                $newHash = password_hash($password, PASSWORD_DEFAULT);
+                $upd = mysqli_prepare($con, "UPDATE usuarios SET contrasenia = ? WHERE id_usuario = ?");
+                mysqli_stmt_bind_param($upd, "si", $newHash, $usuario['id_usuario']);
+                mysqli_stmt_execute($upd);
+                mysqli_stmt_close($upd);
+
+                // Iniciar sesión
+                $_SESSION['usuario'] = $usuario['nombre'];
+                $_SESSION['id_usuario'] = $usuario['id_usuario'];
+                $_SESSION['id_rol'] = $usuario['id_rol'];
+
+                $usuario_sesion = $_SESSION['usuario'];
+                mysqli_query($con, "SET @usuario_actual = '$usuario_sesion'");
+
+                if ($usuario['id_rol'] == 1) {
+                    header("Location: ../php/productos_admin.php");
+                } else {
+                    header("Location: ../html/pag_principal_cliente.html");
+                }
+
+                exit();
+            }
+
             header("Location: ../html/login.html?error=contrasena");
             exit();
         }
