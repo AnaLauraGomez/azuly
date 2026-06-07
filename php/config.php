@@ -9,7 +9,7 @@
 #if (!$con) {
 #    die("❌ Error al conectar a la base de datos: " . mysqli_connect_error());
 #} else {
-#    //echo "✅ Conexión exitosa";
+    //echo "✅ Conexión exitosa";
 #}
 
 $server = "localhost"; 

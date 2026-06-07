@@ -131,6 +131,8 @@ nav ul li a {
     max-width: 500px; /* Controla el ancho máximo */
     width: 500px;
     height: 300px;
+    flex-wrap: wrap; /* Permite que se adapte en pantallas pequeñas */
+
    
 }
 
